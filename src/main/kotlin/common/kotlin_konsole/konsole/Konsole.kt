@@ -36,10 +36,19 @@ interface Konsole {
      * Resolves user menu selection to determine if a submenu was selected, or if a callback needs to be called upon
      */
     suspend fun isUserMenuSelectionSubMenu(nextMenu: KonsoleMenu, userInput: Int): Boolean {
-        val currentMenuTypedArray = this.currentMenuSelection.entries.toTypedArray() //
-        this.previousMenuSelection = this.currentMenuSelection
-        this.currentMenuSelection = nextMenu
+        // turn current menu's entries into a TypedArray to access getter w/ Int index vice a string index
+        val currentMenuTypedArray = this.currentMenuSelection.entries.toTypedArray()
+
+        // get the next menu option from the current menu's entires
         val nextMenuOption = currentMenuTypedArray[userInput - 1]
+
+//        if (nextMenuOption.value) {
+            // set previous menu selection to the current one BEFORE setting current one to the next menu
+            this.previousMenuSelection = this.currentMenuSelection
+
+            //
+            this.currentMenuSelection = nextMenu
+//        }
 
         return nextMenuOption.value
     }
