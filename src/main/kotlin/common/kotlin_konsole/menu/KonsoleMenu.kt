@@ -2,7 +2,8 @@ package common.kotlin_konsole.menu
 
 open class KonsoleMenu(
     private val menuOptions: LinkedHashMap<String, Boolean>,
-    override val title: String
+    override val title: String,
+    override val menuTier: MenuTier? = null
 ): Menu(
     menuOptions
 ) {
@@ -28,4 +29,5 @@ open class KonsoleMenu(
 
         return retStr
     }
+
 }

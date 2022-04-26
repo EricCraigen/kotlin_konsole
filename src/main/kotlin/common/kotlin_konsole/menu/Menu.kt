@@ -6,5 +6,7 @@ sealed class Menu(
     menuOptions
 ) {
     abstract val title: String
+    abstract val menuTier: MenuTier?
+
     abstract suspend fun callback(menuOption: Int)
 }

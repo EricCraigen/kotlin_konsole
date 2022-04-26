@@ -1,11 +1,14 @@
 package nfc_playground.menus
 
 import common.kotlin_konsole.menu.KonsoleMenu
+import common.kotlin_konsole.menu.MenuTier
 
 class UtilitiesMenu: KonsoleMenu(
     menuOptions,
     title
 ) {
+
+    override val menuTier: MenuTier = MenuTier.SUB_1
 
     companion object {
         const val title = "Utilities Menu"
